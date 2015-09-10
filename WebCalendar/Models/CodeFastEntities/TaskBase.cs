@@ -6,12 +6,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
-namespace WebCalendar.Models
+namespace WebCalendar.Models.CodeFastEntities
 {
     /// <summary>
-    /// 日付に関するスケジュール項目
+    /// タスクの基本的制限
     /// </summary>
-    public class DateItem
+    public class TaskBase
     {
         /// <summary>
         /// PK
@@ -26,9 +26,18 @@ namespace WebCalendar.Models
         public int UserId { get; set; }
 
         /// <summary>
+        /// 公開レベル
+        /// 1:非公開
+        /// 2:承認された人まで公開
+        /// 3:公開
+        /// </summary>
+        [DisplayName("制限")]
+        public int PublicLevel { get; set; }
+
+        /// <summary>
         /// 日付
         /// </summary>
-        [DisplayName("登録日")]
+        [DisplayName("予定日")]
         [DisplayFormat(DataFormatString = "{0:yyyy年MM月dd日}")]
         public DateTime Date { get; set; }
 

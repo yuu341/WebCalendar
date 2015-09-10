@@ -159,20 +159,25 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\DateItemsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\TaskBasesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\DateItem.cs" />
+    <Compile Include="Models\CodeFastEntities\Log.cs" />
+    <Compile Include="Models\CodeFastEntities\Master\UserProfile.cs" />
+    <Compile Include="Models\CodeFastEntities\Master\UserRole.cs" />
+    <Compile Include="Models\CodeFastEntities\TaskBase.cs" />
+    <Compile Include="Models\CodeFastEntities\Master\User.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\SampleDataInitializer.cs" />
+    <Compile Include="Models\DBInitializer\SampleDataInitializer.cs" />
     <Compile Include="Models\WorkingShareContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewResult\ImageResult.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -230,11 +235,11 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\DateItems\Create.cshtml" />
-    <Content Include="Views\DateItems\Delete.cshtml" />
-    <Content Include="Views\DateItems\Details.cshtml" />
-    <Content Include="Views\DateItems\Edit.cshtml" />
-    <Content Include="Views\DateItems\Index.cshtml" />
+    <Content Include="Views\TaskBases\Create.cshtml" />
+    <Content Include="Views\TaskBases\Delete.cshtml" />
+    <Content Include="Views\TaskBases\Details.cshtml" />
+    <Content Include="Views\TaskBases\Edit.cshtml" />
+    <Content Include="Views\TaskBases\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

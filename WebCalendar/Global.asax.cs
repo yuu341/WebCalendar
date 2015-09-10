@@ -19,6 +19,10 @@ namespace WebCalendar
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
+            //ASPX無効
+            ViewEngines.Engines.Clear();
+            ViewEngines.Engines.Add(new RazorViewEngine());
+
             Database.SetInitializer<WorkingShareContext>(new SampleDataInitializer());
         }
     }

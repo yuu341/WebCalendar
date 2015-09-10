@@ -1,4 +1,4 @@
-﻿@model IEnumerable<WebCalendar.Models.DateItem>
+﻿@model IEnumerable<WebCalendar.Models.TaskBase>
 
 @{
     ViewBag.Title = "Index";
@@ -13,6 +13,9 @@
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.UserId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PublicLevel)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Date)
@@ -30,6 +33,9 @@
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.UserId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PublicLevel)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Date)
