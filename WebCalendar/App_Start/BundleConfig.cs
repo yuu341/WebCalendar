@@ -17,6 +17,8 @@ namespace WebCalendar
                         "~/Scripts/jquery/jquery.validate*"));
 
             bundles.Add(new ScriptBundle("~/bundles/angularjs").Include(
+                        "~/Scripts/angularjs/i18n/angular-locale_ja.js",
+                        "~/Scripts/angularjs/i18n/angular-locale_ja-jp.js",
                         "~/Scripts/angularjs/angular*"));
 
             // 開発と学習には、Modernizr の開発バージョンを使用します。次に、実稼働の準備が

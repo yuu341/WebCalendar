@@ -10,5 +10,18 @@
     @Html.ActionLink("新規予定", "Create")
 </p>
 <div>
-
+    <table class="table table-condensed table-hover">
+        <thead>
+        </thead>
+        <tbody>
+            <tr ng-repeat="cal in calendarList">
+                <td>{{}}</td>
+            </tr>
+        </tbody>
+    </table>
 </div>
+
+@section scripts{
+    <script src="@Url.Content("~/Areas/Cal/Scripts/CalendarCtrl.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Areas/Cal/Scripts/CalendarService.js")" type="text/javascript"></script>
+}

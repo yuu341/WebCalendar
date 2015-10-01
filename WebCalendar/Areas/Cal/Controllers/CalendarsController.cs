@@ -22,6 +22,52 @@ namespace WebCalendar.Areas.Cal.Controllers
             return PartialView(await db.CalendarBases.ToListAsync());
         }
 
+
+        public CalendarResponse Get([ModelBinder] CalendarListRequest model)
+        {
+            model = model ?? new CalendarListRequest();
+            var repository = new ExampleDataRepository();
+            return repository.GetCalendarList(model);
+        }
+
+        public Calendar Get(int id)
+        {
+            var repository = new ExampleDataRepository();
+            var Calendar = repository.ReadCalendar(id);
+            if (Calendar == null)
+            {
+                throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.NotFound));
+            }
+            return Calendar;
+        }
+
+        public void Post(Calendar Calendar)
+        {
+            var repository = new ExampleDataRepository();
+            repository.CreateCalendar(Calendar);
+        }
+
+        public void Put(Calendar Calendar)
+        {
+            var repository = new ExampleDataRepository();
+            repository.UpdateCalendar(Calendar);
+        }
+
+        public void Delete(int id)
+        {
+            var repository = new ExampleDataRepository();
+            repository.DeleteCalendar(id);
+        }
+
+
+
+
+        // GET: Cal/Calendars/List
+        public async Task<ActionResult> List()
+        {
+            return PartialView(await db.CalendarBases.ToListAsync());
+        }
+
         // GET: Cal/Calendars/Details/5
         public async Task<ActionResult> Details(int? id)
         {
