@@ -1,0 +1,17 @@
+﻿@using WebCalendar.Models.CodeFastEntities.Master
+@model IEnumerable<Menu>
+
+<div class="col-sm-3 col-md-2 sidebar">
+    <ul class="nav nav-sidebar">
+        @foreach (var item in Model)
+        {
+            <li>@Ajax.ActionLink(
+                @item.MenuName,
+                 @item.Action,
+                 @item.Controller,
+                new { Area = item.Area },
+                new AjaxOptions { InsertionMode = InsertionMode.ReplaceWith, UpdateTargetId = "main-content" }
+            )</li>
+        }
+    </ul>
+</div>

@@ -1,0 +1,29 @@
+﻿
+@using Microsoft.AspNet.Identity
+<div class="col-sm-3 col-md-2 sidebar">
+    @if (Request.IsAuthenticated)
+    {
+        <button>編集</button>
+        <div>
+            画像を表示 100*100
+        </div>
+        <div>ユーザ名</div>
+        <div>
+            自己紹介文の表示
+        </div>
+        <div>
+            最終ログイン日時
+        </div>
+    }
+    else
+    {
+        <button>ログイン</button>
+        <button>ユーザ登録</button>
+        <div>
+            ログインしてください。
+            ログインするといろいろな便利機能が使えます。
+            ・どこでもカレンダーにアクセス
+            ・グループを作って仲間とカレンダーを共有
+        </div>
+    }
+</div>

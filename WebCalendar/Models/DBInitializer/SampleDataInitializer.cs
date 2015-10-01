@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
+using WebCalendar.Areas.Cal.Models;
 using WebCalendar.Models.CodeFastEntities;
+using WebCalendar.Models.CodeFastEntities.Master;
 
 namespace WebCalendar.Models
 {
@@ -13,20 +16,34 @@ namespace WebCalendar.Models
         {
             base.Seed(context);
 
-            var items = new List<TaskBase>()
-            {
-                new TaskBase(){ Date= DateTime.Parse("2015-10-12"), ItemKbn = 0 , UserId = 0, Complete = false, },
-                new TaskBase(){ Date= DateTime.Parse("2015-10-13"), ItemKbn = 11 , UserId = 0, Complete = true, },
-                new TaskBase(){ Date= DateTime.Parse("2015-10-14"), ItemKbn = 12 , UserId = 0, Complete = false, },
-                new TaskBase(){ Date= DateTime.Parse("2015-10-15"), ItemKbn = 19 , UserId = 0, Complete = true, },
-                new TaskBase(){ Date= DateTime.Parse("2015-10-16"), ItemKbn = 2 , UserId = 0, Complete = false, },
-                new TaskBase(){ Date= DateTime.Parse("2015-10-17"), ItemKbn = 0 , UserId = 0, Complete = false, },
-                new TaskBase(){ Date= DateTime.Parse("2015-10-18"), ItemKbn = 11 , UserId = 0, Complete = true, },
-            };
+            CreateMenus(context);
 
-            //items.ForEach(m => context.DateItems.Add(m));
-            context.DateItems.AddRange(items);
+            CreateCalendarBase(context);
+            
             context.SaveChanges();
+        }
+        private void CreateMenus(WorkingShareContext context)
+        {
+            var data = new List<Menu>();
+            int order = 1;
+            data.Add(new Menu { MenuName = "ホーム", Controller = "Home" , Order = order++ });
+            data.Add(new Menu { MenuName = "カレンダー", Controller = "Calendars", Area = "Cal", Order = order++ });
+            data.Add(new Menu { MenuName = "タスク", Controller = "Tasks", Area = "Cal", Order = order++ });
+            data.Add(new Menu { MenuName = "ユーザ", Controller = "User", Area = "Master", Order = order++ });
+            data.Add(new Menu { MenuName = "メニュー", Controller = "Menu", Area = "Master", Order = order++ });
+
+            context.Menus.AddRange(data);
+        }
+        private void CreateCalendarBase(WorkingShareContext context)
+        {
+            var data = new List<CalendarBase>();
+
+            Random rand = new Random(DateTime.Now.Millisecond);
+            for (int i = 0; i < 100; i++)
+            {
+                data.Add(CalendarBase.CreateSample(rand));
+            }
+            context.CalendarBases.AddRange(data);
         }
     }
 }

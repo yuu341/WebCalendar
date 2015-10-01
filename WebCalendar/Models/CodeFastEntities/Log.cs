@@ -12,12 +12,13 @@ namespace WebCalendar.Models.CodeFastEntities
         [Key]
         public DateTime Date { get; set; }
 
+        
         public int Type { get; set; }
 
         public int Message { get; set; }
 
-        public int UserId { get; set; }
+        //public int UserId { get; set; }
 
-        public User User { get; set; }
+        //public User User { get; set; }
     }
 }

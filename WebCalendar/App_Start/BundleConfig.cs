@@ -9,10 +9,15 @@ namespace WebCalendar
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
+                        "~/Scripts/jquery/jquery.jquery.validate.unobtrusive-ajax.js",
+                        "~/Scripts/jquery/jquery-{version}.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                        "~/Scripts/jquery.validate*"));
+                        "~/Scripts/jquery/jquery.unobtrusive*",
+                        "~/Scripts/jquery/jquery.validate*"));
+
+            bundles.Add(new ScriptBundle("~/bundles/angularjs").Include(
+                        "~/Scripts/angularjs/angular*"));
 
             // 開発と学習には、Modernizr の開発バージョンを使用します。次に、実稼働の準備が
             // できたら、http://modernizr.com にあるビルド ツールを使用して、必要なテストのみを選択します。

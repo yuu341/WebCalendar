@@ -15,6 +15,16 @@ namespace WebCalendar.Areas.Cal.Models
         /// </summary>
         public DateTime? Date { get; set; }
 
+        /// <summary>
+        /// から
+        /// </summary>
+        public DateTime? FromDate { get; set; }
+
+        /// <summary>
+        /// まで
+        /// </summary>
+        public DateTime? ToDate { get; set; }
+
         [StringLength(50)]
         public string Summary { get; set; }
     }
